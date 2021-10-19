@@ -1,0 +1,147 @@
+html {
+    font-size: 10px;
+}
+
+ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+
+.backgound {
+    background-color:whitesmoke;
+}
+
+.title {
+    color: #748e70;
+    display: inline;
+    margin: 0.5rem 1rem;
+    font-size: xx-large;
+    position: absolute;
+}
+
+.subtitle {
+    color: #748e70;
+    font-size: xx-large;
+    text-align: center;
+}
+
+.subsubtitle {
+    color: #6b9b64;
+    font-size: x-large;
+    text-align: center;
+}
+
+.logo {
+    margin: 1rem;
+}
+
+.navbar-options {
+    display: block;
+    color: whitesmoke;
+    text-align: center;
+    font-size: large;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+.navbar {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color:#5ea853;
+    display: flex;
+    justify-content: center;
+}
+
+.navbar-icon {
+    display: none;
+}
+
+@media screen and (max-width: 600px) {
+    .navbar a {display: none;}
+    .navbar .navbar-icon {
+      float: right;
+      display: block;
+      margin-left: auto;
+    }
+  }
+  
+@media screen and (max-width: 600px) {
+    .navbar.responsive {
+        position: relative;
+        flex-direction: column;
+    }
+    .navbar.responsive .navbar-icon {
+      position: absolute;
+      right: 0;
+      top: 0;
+    }
+    .navbar.responsive a {
+      float: none;
+      display: block;
+      text-align: left;
+    }
+    .navbar.responsive .index-icon {
+        color: #5ea853;
+    }
+}
+
+.footer {
+    background: #E8EEF4;
+	color: #7c827b;
+	padding: 5em 5em 3em 5em;
+	text-align: center;
+    font-size: large;
+}
+
+.footer-bottom {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}
+
+.copyright {
+    font-size: 1em;
+	line-height: 1em;
+    color: #5ea853;
+}
+
+.icons {
+    padding-left: 0;
+    cursor: default;
+    color: #5ea853;
+}
+
+.current-page {
+    background-color: whitesmoke;
+    color: #5ea853;
+    border: 1px solid #5ea853;
+}
+
+.page-content {
+    text-align: justify;
+    font-size: large;
+    color: #7c827b;
+    margin: 0rem 15rem 10rem 15rem;
+    align-content: inherit;
+}
+
+@media only screen and (max-width: 600px) {
+    .page-content {
+        margin: 0rem;
+    }
+} 
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 90%;
+}
+
+.contact {
+    text-align: center;
+}

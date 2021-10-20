@@ -131,7 +131,7 @@ ul {
 }
 
 @media only screen and (max-width: 600px) {
-    .page-content {
+    .wrapper {
         margin: 0rem;
     }
 } 

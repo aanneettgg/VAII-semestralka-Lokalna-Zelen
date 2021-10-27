@@ -8,6 +8,10 @@ ul {
     padding: 0;
 }
 
+a:hover {
+    color: #748e70;
+}
+
 .backgound {
     background-color:whitesmoke;
 }
@@ -110,12 +114,6 @@ ul {
     color: #5ea853;
 }
 
-.icons {
-    padding-left: 0;
-    cursor: default;
-    color: #5ea853;
-}
-
 .current-page {
     background-color: whitesmoke;
     color: #5ea853;
@@ -174,3 +172,18 @@ ul {
 .container {
     padding: 2px 16px;
 }
+
+.fa {
+    margin: 1rem;
+    font-size: 30px;
+    text-align: center;
+    text-decoration: none;
+  }
+
+.fa-facebook {
+color: #5ea853;
+}
+
+.fa-instagram {
+    color: #5ea853;
+  }

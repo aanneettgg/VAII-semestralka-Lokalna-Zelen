@@ -118,6 +118,7 @@ a:hover {
     background-color: whitesmoke;
     color: #5ea853;
     border: 1px solid #5ea853;
+    border-radius: 8px;
 }
 
 .wrapper {
@@ -187,3 +188,19 @@ color: #5ea853;
 .fa-instagram {
     color: #5ea853;
   }
+
+.button {
+    background-color: #5ea853;
+    border: none;
+    color: white;
+    text-align: center;
+    cursor: pointer;
+    float: right;
+    padding: 1rem 2.5rem;
+    font-size: large;
+    border-radius: 8px;
+}
+
+.hov:hover {
+    color: #7c827b;
+}

@@ -210,6 +210,7 @@ color: #5ea853;
     display: flex;
     justify-content: center;
     gap: 1rem;
+    margin-top: 4rem;
 }
 
 .button-user {
@@ -229,5 +230,18 @@ color: #5ea853;
     cursor: pointer;
     border: none;
 }
+
+.form {
+    width: 70%;
+}
+
+.form:invalid {
+    border: 2px red;
+}
+
+a {
+    color: #5ea853;
+}
+
 
 

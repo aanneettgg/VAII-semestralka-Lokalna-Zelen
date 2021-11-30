@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="public/files/style.css">
     <link rel="icon" href="public/files/images/logo.ico" type="image/gif" sizes="150x153">
+    <script src="public/files/js/formPage.js"></script>
 </head>
 
 <body>

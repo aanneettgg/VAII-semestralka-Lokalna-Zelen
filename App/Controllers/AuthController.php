@@ -33,7 +33,7 @@ class AuthController extends AControllerRedirect
         if ($logged) {
             $this->redirect('home');
         } else {
-            $this->redirect('auth', 'loginForm', ['error' => 'Zle meno alebo heslo.']);
+            $this->redirect('auth', 'loginForm', ['error' => 'Zlé meno alebo heslo.']);
         }
     }
 
@@ -43,6 +43,10 @@ class AuthController extends AControllerRedirect
     }
 
     public function registrationForm() {
-        return $this->html();
+        return $this->html(
+            [
+                'error' => $this->request()->getValue('error')
+            ]
+        );
     }
 }

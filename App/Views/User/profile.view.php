@@ -6,10 +6,6 @@
         <p class="contact">
             <?= $data['user']->username ?>
         </p>
-        <h3 class="subsubtitle">Heslo</h3>
-        <p class="contact">
-            <?= $data['user']->password ?>
-        </p>
         <h3 class="subsubtitle">Meno</h3>
         <p class="contact">
             <?= $data['user']->name ?>

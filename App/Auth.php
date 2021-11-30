@@ -1,7 +1,7 @@
 <?php
 
 namespace App;
-// prerobit s tabulkou users kde sa to bude kontrolovat
+
 use App\Models\User;
 
 class Auth
@@ -11,7 +11,7 @@ class Auth
     {
         $users = User::getAll();
         foreach ($users as $user) {
-            if ($login == $user->email && $password == $user->password) {
+            if ($login == $user->username && $password == $user->password) {
                 $_SESSION["name"] = $login;
                 $_SESSION["id"] = $user->id;
                 return true;

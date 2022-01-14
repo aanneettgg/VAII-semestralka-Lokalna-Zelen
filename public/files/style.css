@@ -130,7 +130,6 @@ a:hover {
     font-size: large;
     color: #7c827b;
     margin: 5rem 15rem 10rem 15rem;
-    align-content: inherit;
 }
 
 @media only screen and (max-width: 600px) {
@@ -156,6 +155,7 @@ a:hover {
     width: 25%;
     font-size: large;
     color: #7c827b;
+    text-decoration: none;
 }
 
 @media screen and (max-width: 600px) {
@@ -176,6 +176,12 @@ a:hover {
   
 .container {
     padding: 2px 16px;
+}
+
+.ellipsis {
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .fa {
@@ -241,6 +247,17 @@ color: #5ea853;
 
 a {
     color: #5ea853;
+}
+
+.productPosition {
+    width: 50rem;
+    float: right;
+}
+
+.review-width {
+    max-width: 100%;
+    word-break: break-all;
+    white-space: normal;
 }
 
 

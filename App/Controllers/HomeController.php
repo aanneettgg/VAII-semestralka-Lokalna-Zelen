@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Core\AControllerBase;
 use App\Models\Company;
+use App\Models\Product;
+use App\Models\User;
 
 /**
  * Class HomeController
@@ -30,16 +32,26 @@ class HomeController extends AControllerBase
 
     public function shop()
     {
-        return $this->html();
+        $products = Product::getAll();
+        $companies = Company::getAll("userId = ?", [$_SESSION["id"]]);
+
+        return $this->html(
+            [
+                'products' => $products,
+                'companies' => $companies
+            ]
+        );
     }
 
     public function partners()
     {
         $companies = Company::getAll();
+        $user = User::getOne($_SESSION["id"]);
 
         return $this->html(
             [
-                'companies' => $companies
+                'companies' => $companies,
+                'user' =>$user
             ]);
     }
 }

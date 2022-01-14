@@ -5,9 +5,9 @@ namespace App\Models;
 class Review extends \App\Core\Model
 {
     public function __construct(
-        public int $id,
-        public int $productId,
-        public string $reviewDescription,
+        public int $id = 0,
+        public int $productId = 0,
+        public string $reviewDescription = "",
         public int $rating = 0,
         public int $likes = 0
     )

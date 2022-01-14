@@ -32,3 +32,21 @@ function validatePassword()
         errorNumber.innerText = "";
     }
 }
+
+function validateNumber()
+{
+    var number = document.getElementById('productPrice').value;
+    var submit = document.getElementById('submit');
+    var errorNumber = document.getElementById('errorNumber');
+    var regexNumber = /^[0-9]*\.?[0-9]*$/;
+
+    submit.disabled = false;
+
+    if (number.match(regexNumber)) {
+        errorNumber.innerText = "Zlý formát ceny, príklad správneho: 0.99 alebo 10.01.";
+        errorNumber.classList.add('text-danger');
+        submit.disabled = true;
+    } else {
+        errorNumber.innerText = "";
+    }
+}

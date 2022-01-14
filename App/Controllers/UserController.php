@@ -115,16 +115,12 @@ class UserController extends AControllerRedirect
         Auth::logout();
     }
 
-    function debug_to_console($data) {
-        $output = $data;
-        if (is_array($output))
-            $output = implode(',', $output);
-
-        echo "<script>console.log('Debug Objects: " . $output . "' );</script>";
-    }
-
     public function profile()
     {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         $user = User::getOne($_SESSION["id"]);
 
         return $this->html(
@@ -136,6 +132,10 @@ class UserController extends AControllerRedirect
 
     public function update()
     {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         $user = User::getOne($_SESSION["id"]);
 
         return $this->html(

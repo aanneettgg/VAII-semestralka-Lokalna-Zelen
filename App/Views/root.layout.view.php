@@ -50,7 +50,7 @@ $page = $_GET['a'] ?? ''; ?>
     <?= $contentHTML ?>
 </div>
 
-<footer class="footer <?php if($page == 'registrationForm' || $page == 'loginForm'){ echo ' footer-bottom"';}?>">
+<footer class="footer <?php if($page == 'registrationForm' || $page == 'loginForm' || $page == 'newCompany'){ echo ' footer-bottom"';}?>">
     <ul>
         <a href="https://www.facebook.com/lokalnazelen/" target="_blank"
            class="fa fa-facebook"></a>

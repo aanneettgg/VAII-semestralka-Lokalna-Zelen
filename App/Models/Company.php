@@ -6,6 +6,7 @@ class Company extends \App\Core\Model
 {
     public function __construct(
         public int    $id = 0,
+        public int    $userId = 0,
         public string $companyName = "",
         public string $companyDescription = "",
         public string $companyImage = ""
@@ -15,7 +16,7 @@ class Company extends \App\Core\Model
 
     static public function setDbColumns()
     {
-        return ['id', 'companyName', 'companyDescription', 'companyImage'];
+        return ['id','userId', 'companyName', 'companyDescription', 'companyImage'];
     }
 
     static public function setTableName()

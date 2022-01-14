@@ -1,3 +1,10 @@
+:root {
+    --green: #5ea853;
+    --lightGreen: #748e70;
+    --grey: #7c827b;
+    --backgroudWhite: whitesmoke;
+}
+
 html {
     font-size: 62.5%;
 }
@@ -13,15 +20,15 @@ ul {
 }
 
 a:hover {
-    color: #748e70;
+    color: var(--lightGreen);
 }
 
 .backgound {
-    background-color:whitesmoke;
+    background-color: var(--backgroudWhite);
 }
 
 .title {
-    color: #748e70;
+    color: var(--lightGreen);
     display: inline;
     margin: 0.5rem 1rem;
     font-size: xx-large;
@@ -29,7 +36,7 @@ a:hover {
 }
 
 .subtitle {
-    color: #748e70;
+    color: var(--lightGreen);
     font-size: xx-large;
     text-align: center;
     margin-bottom: 2rem;
@@ -47,7 +54,7 @@ a:hover {
 
 .navbar-options {
     display: block;
-    color: whitesmoke;
+    color: var(--backgroudWhite);
     text-align: center;
     font-size: large;
     padding: 14px 16px;
@@ -59,7 +66,7 @@ a:hover {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    background-color:#5ea853;
+    background-color: var(--green);
     display: flex;
     justify-content: center;
 }
@@ -93,13 +100,13 @@ a:hover {
       text-align: left;
     }
     .navbar1.responsive .index-icon {
-        color: #5ea853;
+        color: var(--green);
     }
 }
 
 .footer {
     background: #E8EEF4;
-	color: #7c827b;
+	color: var(--grey);
 	padding: 5em 5em 3em 5em;
 	text-align: center;
     font-size: large;
@@ -115,20 +122,20 @@ a:hover {
 .copyright {
     font-size: 1em;
 	line-height: 1em;
-    color: #5ea853;
+    color: var(--green);
 }
 
 .current-page {
-    background-color: whitesmoke;
-    color: #5ea853;
-    border: 1px solid #5ea853;
+    background-color: var(--backgroudWhite);
+    color: var(--green);
+    border: 1px solid var(--green);
     border-radius: 8px;
 }
 
 .wrapper {
     text-align: justify;
     font-size: large;
-    color: #7c827b;
+    color: var(--grey);
     margin: 5rem 15rem 10rem 15rem;
 }
 
@@ -154,7 +161,7 @@ a:hover {
     transition: 0.3s;
     width: 25%;
     font-size: large;
-    color: #7c827b;
+    color: var(--grey);
     text-decoration: none;
 }
 
@@ -192,15 +199,15 @@ a:hover {
   }
 
 .fa-facebook {
-color: #5ea853;
+color: var(--green);
 }
 
 .fa-instagram {
-    color: #5ea853;
+    color: var(--green);
   }
 
 .button {
-    background-color: #5ea853;
+    background-color: var(--green);
     border: none;
     color: white;
     text-align: center;
@@ -227,11 +234,11 @@ color: #5ea853;
 }
 
 .hov:hover {
-    color: #7c827b;
+    color: var(--grey);
 }
 
 .fa-user {
-    color: #5ea853;
+    color: var(--green);
     float: right;
     cursor: pointer;
     border: none;
@@ -246,7 +253,7 @@ color: #5ea853;
 }
 
 a {
-    color: #5ea853;
+    color: var(--green);
 }
 
 .productPosition {

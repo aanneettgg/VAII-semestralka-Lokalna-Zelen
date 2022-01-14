@@ -11,7 +11,7 @@ class Auth
     {
         $users = User::getAll();
         foreach ($users as $user) {
-            if ($login == $user->username && $password == $user->password) {
+            if ($login == $user->username && password_verify($password, $user->password)) {
                 $_SESSION["name"] = $login;
                 $_SESSION["id"] = $user->id;
                 return true;

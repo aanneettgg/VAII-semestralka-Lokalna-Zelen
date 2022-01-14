@@ -42,8 +42,8 @@ function validateNumber()
 
     submit.disabled = false;
 
-    if (number.match(regexNumber)) {
-        errorNumber.innerText = "Zlý formát ceny, príklad správneho: 0.99 alebo 10.01.";
+    if (number.match(regexNumber) == null) {
+        errorNumber.innerText = "Zlý formát ceny. Príklad: 0.99 alebo 10.01.";
         errorNumber.classList.add('text-danger');
         submit.disabled = true;
     } else {

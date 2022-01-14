@@ -10,7 +10,7 @@
                 </div>
             <?php } ?>
             <form method="post" action="?c=product&a=createProduct" enctype="multipart/form-data">
-                <input type="hidden" name="id" value="<?= $data['product']->id ?>">
+                <input type="hidden" name="id" value="<?= $data['product']->id ?? "" ?>">
                 <div class="mb-3">
                     <label for="exampleFormControlInput1" class="form-label">Názov produktu</label>
                     <input type="text" class="form-control" name="productName" value="<?= $data['product']->productName ?? "" ?>" maxlength="30" placeholder="Názov produktu" required>

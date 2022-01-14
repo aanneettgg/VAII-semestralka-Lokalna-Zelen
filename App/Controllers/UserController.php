@@ -49,7 +49,7 @@ class UserController extends AControllerRedirect
         else
         {
             $user->save();
-            Auth::login($user->username, $user->password);
+            Auth::login($user->username, $this->request()->getValue('password'));
             $this->redirect('home');
         }
     }
@@ -150,8 +150,8 @@ class UserController extends AControllerRedirect
     {
         $user->username = Validation::test_input($this->request()->getValue('username'));
         $user->name = Validation::test_input($this->request()->getValue('name'));
-        $user->surname = Validation::test_input($this->request()->getValue('surname'));
-        $user->password = Validation::test_input($this->request()->getValue('password'));
+        $user->surname =Validation::test_input($this->request()->getValue('surname'));
+        $user->password =  password_hash(Validation::test_input($this->request()->getValue('password')), PASSWORD_DEFAULT);
         $user->email = Validation::test_input($this->request()->getValue('email'));
 
         return $user;

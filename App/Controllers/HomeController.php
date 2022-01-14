@@ -33,7 +33,14 @@ class HomeController extends AControllerBase
     public function shop()
     {
         $products = Product::getAll();
-        $companies = Company::getAll("userId = ?", [$_SESSION["id"]]);
+        if (isset($_SESSION["id"]))
+        {
+            $companies = Company::getAll("userId = ?", [$_SESSION["id"]]);
+        }
+        else
+        {
+            $companies = Company::getAll();
+        }
 
         return $this->html(
             [
@@ -46,12 +53,10 @@ class HomeController extends AControllerBase
     public function partners()
     {
         $companies = Company::getAll();
-        $user = User::getOne($_SESSION["id"]);
 
         return $this->html(
             [
-                'companies' => $companies,
-                'user' =>$user
+                'companies' => $companies
             ]);
     }
 }

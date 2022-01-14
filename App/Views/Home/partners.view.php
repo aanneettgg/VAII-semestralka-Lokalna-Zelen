@@ -19,7 +19,7 @@
         <?php foreach ($data['companies'] as $company) { ?>
             <?php if (!\App\Auth::isLogged() || \App\Auth::isLogged() && $company->userId == $_SESSION['id'] ?? -1) { ?>
                 <div class="card col-sm-12 col-md-6 col-lg-3">
-                    <a href="?c=company&a=index&id=<?= $company->id ?>">
+                    <a href="?c=company&a=index&id=<?= $company->id?>">
                         <img src=" <?= Configuration::IMAGES_PATH . $company->companyImage ?>" alt="Avatar" style="width:100%">
                         <div class="container">
                             <h4 class="subsubtitle"><b><?= $company->companyName ?></b></h4>

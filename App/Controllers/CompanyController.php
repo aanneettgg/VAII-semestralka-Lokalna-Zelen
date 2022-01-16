@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Auth;
 use App\Config\Configuration;
 use App\Models\Company;
 use App\Validation;
@@ -22,16 +23,21 @@ class CompanyController extends AControllerRedirect
 
     public function createCompany()
     {
-        if(is_null($this->request()->getValue('id')))
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
+        if($this->request()->getValue('id') == "")
         {
             $company = new Company;
+            $companies = Company::getAll();
         }
         else
         {
             $company = Company::getOne($this->request()->getValue('id'));
+            $companies = Company::getAll('id <> ?', [$company->id]);
         }
 
-        $companies = Company::getAll('id <> ?', [$company->id]);
         $isDuplicatedCompanyName = false;
         $isDuplicatedImage = false;
 
@@ -69,6 +75,10 @@ class CompanyController extends AControllerRedirect
 
     public function deleteCompany()
     {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         $company = Company::getOne($this->request()->getValue('id'));
         unlink(Configuration::IMAGES_PATH . $company->companyImage);
         $company->delete();
@@ -76,7 +86,12 @@ class CompanyController extends AControllerRedirect
         $this->redirect('home', 'partners');
     }
 
-    public function saveCompany() {
+    public function saveCompany()
+    {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         if(is_null($this->request()->getValue('id')))
         {
             return $this->html(

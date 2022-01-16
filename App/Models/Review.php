@@ -8,15 +8,14 @@ class Review extends \App\Core\Model
         public int $id = 0,
         public int $productId = 0,
         public string $reviewDescription = "",
-        public int $rating = 0,
-        public int $likes = 0
+        public int $rating = 0
     )
     {
     }
 
     static public function setDbColumns()
     {
-        return ['id', 'productId', 'reviewDescription', 'rating', 'likes'];
+        return ['id', 'productId', 'reviewDescription', 'rating'];
     }
 
     static public function setTableName()

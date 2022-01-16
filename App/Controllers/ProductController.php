@@ -2,6 +2,7 @@
 
 namespace App\Controllers;
 
+use App\Auth;
 use App\Config\Configuration;
 use App\Models\Company;
 use App\Models\Product;
@@ -27,16 +28,21 @@ class ProductController extends AControllerRedirect
 
     public function createProduct()
     {
-        if(is_null($this->request()->getValue('id')))
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
+        if($this->request()->getValue('id') == "")
         {
             $product = new Product();
+            $products = Product::getAll();
         }
         else
         {
             $product = Product::getOne($this->request()->getValue('id'));
+            $products = Product::getAll('id <> ?', [$product->id]);
         }
 
-        $products = Product::getAll('id <> ?', [$product->id]);
         $isDuplicatedProductName = false;
         $isDuplicatedImage = false;
 
@@ -68,12 +74,16 @@ class ProductController extends AControllerRedirect
         else
         {
             $product->save();
-            $this->redirect('home', 'shop');
+            $this->redirect('product', 'index', ['id' => $product->id]);
         }
     }
 
     public function deleteProduct()
     {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         $product = Product::getOne($this->request()->getValue('id'));
         unlink(Configuration::IMAGES_PATH . $product->productImage);
         $product->delete();
@@ -83,6 +93,10 @@ class ProductController extends AControllerRedirect
 
     public function saveProduct()
     {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+        }
+
         if(is_null($this->request()->getValue('id')))
         {
             return $this->html(

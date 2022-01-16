@@ -36,17 +36,16 @@ CREATE TABLE `product` (
                         FOREIGN KEY (companyId) REFERENCES company(id)
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `product` (`id`, `companyId`, `productName`, `productType`, `productPrice`, `productDescription`, `productImage`) VALUES (1, 1, "Banány", "Ovocie", 1.20,  "Banány obsahujú veľa draslíku, ktorý je zdravý.", "banany.jpg");
-INSERT INTO `product` (`id`, `companyId`, `productName`, `productType`, `productPrice`, `productDescription`, `productImage`) VALUES (2, 1, "Paradajky", "Zelenina", 2.90, "Plody paradajky patria medzi najvydarenejšie produkty prírody.", "paradajky.png");
+INSERT INTO `product` (`id`, `companyId`, `productName`, `productType`, `productPrice`, `productDescription`, `productImage`) VALUES (1, 1, "Banány", "Potraviny", 1.20,  "Banány obsahujú veľa draslíku, ktorý je zdravý.", "banany.jpg");
+INSERT INTO `product` (`id`, `companyId`, `productName`, `productType`, `productPrice`, `productDescription`, `productImage`) VALUES (2, 1, "Paradajky", "Potraviny", 2.90, "Plody paradajky patria medzi najvydarenejšie produkty prírody.", "paradajky.png");
 
 CREATE TABLE `review` (
                         `id` mediumint(8) unsigned NOT NULL auto_increment,
                         `productId` mediumint(8) unsigned NOT NULL,
                         `reviewDescription` varchar(1000),
                         `rating` int unsigned NOT NULL,
-                        `likes` int unsigned NOT NULL,
                         PRIMARY KEY (`id`),
                         FOREIGN KEY (productId) REFERENCES product(id)
 ) AUTO_INCREMENT=1;
 
-INSERT INTO `review` (`id`, `productId`, `reviewDescription`, `rating`, `likes`) VALUES (1, 1, "Veľmi chutné a plné vitamínov", 5, 0);
+INSERT INTO `review` (`id`, `productId`, `reviewDescription`, `rating`) VALUES (1, 1, "Veľmi chutné a plné vitamínov", 5);

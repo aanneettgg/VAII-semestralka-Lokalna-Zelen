@@ -42,7 +42,6 @@ class ReviewController extends AControllerRedirect
         $review->productId = Validation::test_input($this->request()->getValue('productId'));
         $review->reviewDescription = Validation::test_input($this->request()->getValue('reviewDescription'));
         $review->rating = Validation::test_input($this->request()->getValue('rating'));
-        $review->likes = Validation::test_input(0);
 
         return $review;
     }

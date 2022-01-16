@@ -9,7 +9,7 @@
             <div class="card col-sm-12 col-md-6 col-lg-3">
                 <a href="?c=company&a=saveCompany">
                 <img src=" <?= Configuration::IMAGES_PATH . "plus.png" ?>" alt="Avatar" style="width:100%">
-                <div class="container">
+                <div class="container link-decoration">
                     <h4 class="subsubtitle"><b>Pridať partnera</b></h4>
                 </div>
                 </a>
@@ -21,7 +21,7 @@
                 <div class="card col-sm-12 col-md-6 col-lg-3">
                     <a href="?c=company&a=index&id=<?= $company->id?>">
                         <img src=" <?= Configuration::IMAGES_PATH . $company->companyImage ?>" alt="Avatar" style="width:100%">
-                        <div class="container">
+                        <div class="container link-decoration">
                             <h4 class="subsubtitle"><b><?= $company->companyName ?></b></h4>
                             <p class="ellipsis"><?= $company->companyDescription ?></p>
                         </div>

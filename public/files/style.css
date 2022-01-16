@@ -141,7 +141,7 @@ a:hover {
 
 @media only screen and (max-width: 600px) {
     .wrapper {
-        margin: 0rem;
+        margin: 3rem;
     }
 } 
 
@@ -152,6 +152,7 @@ a:hover {
     width: 90%;
 }
 
+
 .contact {
     text-align: center;
 }
@@ -159,7 +160,6 @@ a:hover {
 .card {
     box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
     transition: 0.3s;
-    width: 25%;
     font-size: large;
     color: var(--grey);
     text-decoration: none;
@@ -219,7 +219,7 @@ color: var(--green);
     text-decoration: none;
 }
 
-.button-profile {
+.button-green {
     display: flex;
     justify-content: center;
     gap: 1rem;
@@ -231,6 +231,12 @@ color: var(--green);
     justify-content: right;
     gap: 1rem;
     float: right;
+}
+
+@media only screen and (max-width: 600px) {
+    .button-user {
+        display: none;
+    }
 }
 
 .hov:hover {
@@ -256,9 +262,15 @@ a {
     color: var(--green);
 }
 
-.productPosition {
+.detail-image-position {
     width: 50rem;
     float: right;
+}
+
+@media only screen and (max-width: 600px) {
+    .detail-image-position {
+        width: 100%;
+    }
 }
 
 .review-width {
@@ -266,6 +278,35 @@ a {
     word-break: break-all;
     white-space: normal;
 }
+
+.link-decoration {
+    text-decoration: none;
+    color: var(--grey);
+    display: inline-block;
+}
+
+@media only screen and (max-width: 600px) {
+    .row {
+        flex-direction: column;
+    }
+}
+
+@media only screen and (min-width: 601px) {
+    .mobile-login {
+        display: none;
+    }
+}
+
+.mobile-submit {
+    overflow: hidden;
+}
+
+.filter {
+    width: 50%;
+    margin-left: auto;
+    margin-right: auto;
+}
+
 
 
 

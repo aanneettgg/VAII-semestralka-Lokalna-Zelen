@@ -13,12 +13,12 @@
             <form method="post" action="?c=review&a=createReview">
                 <input type="hidden" name="productId" value="<?= $data['product']->id ?>">
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Popis</label>
-                    <input type="text" class="form-control" name="reviewDescription" maxlength="1000" placeholder="Popis" required>
+                    <label for="reviewDescription" class="form-label">Popis</label>
+                    <input type="text" class="form-control" name="reviewDescription" id="reviewDescription" maxlength="1000" placeholder="Popis" required>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleFormControlInput1" class="form-label">Hodnotenie (1 - 5)</label>
-                    <input type="number" class="form-control" name="rating" min="1" max="5" placeholder="Hodnotenie produktu" required>
+                    <label for="rating" class="form-label">Hodnotenie (1 - 5)</label>
+                    <input type="number" class="form-control" name="rating" id="rating" min="1" max="5" placeholder="Hodnotenie produktu" required>
                 </div>
                 <div class="mb-3">
                     <input type="submit" class="form-control button" id="submit" value="Pridať">

@@ -32,7 +32,16 @@ class HomeController extends AControllerBase
 
     public function shop()
     {
-        $products = Product::getAll();
+        $filter = $this->request()->getValue('productTypeFilter');
+        if ($filter == 'Všetko' || $filter == null)
+        {
+            $products = Product::getAll();
+        }
+        else
+        {
+            $products = Product::getAll('productType = ?', [$filter]);
+        }
+
         if (isset($_SESSION["id"]))
         {
             $companies = Company::getAll("userId = ?", [$_SESSION["id"]]);
@@ -48,6 +57,14 @@ class HomeController extends AControllerBase
                 'companies' => $companies
             ]
         );
+    }
+
+    public function dropdownCompanyName()
+    {
+        $companyName = '%' . $this->request()->getValue('companyName') . '%';
+        $companies = Company::getAll('companyName LIKE ?', [$companyName]);
+
+        return $this->json($companies);
     }
 
     public function partners()

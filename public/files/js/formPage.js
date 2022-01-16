@@ -50,3 +50,46 @@ function validateNumber()
         errorNumber.innerText = "";
     }
 }
+
+function fillName(name)
+{
+    $('#companyName').val(name);
+    $('#dropdownMenu').hide();
+}
+
+$(document).ready(function() {
+    $('#companyName').keyup(function () {
+        $('#dropdownMenu').show();
+        $.ajax({
+            type: "GET",
+            url: "?c=home&a=dropdownCompanyName",
+            data: { companyName: $('#companyName').val() },
+            success: function (response) {
+                $("#dropdownMenu").empty();
+                for (let i = 0; i < response.length; i++)
+                {
+                    $("#dropdownMenu").append('<li><a class="dropdown-item" onclick="fillName(\''+response[i].companyName+'\')" href="javascript:void(0)">' + response[i].companyName + '</a></li>')
+                }
+            },
+            error: function () {
+                alert('Hodnotu sa nepodarilo uložiť!');
+            }
+        });
+        return false;
+    });
+
+    $('#productTypeFilter').change(function () {
+        console.log('som tu');
+        $.ajax({
+            type: "POST",
+            url: "?c=home&a=shop",
+            data: { productTypeFilter: $('#productTypeFilter').val() },
+            success: function (response) {
+                $("body").html(response);
+            },
+            error: function () {
+                alert('Hodnotu sa nepodarilo uložiť!');
+            }
+        });
+    });
+});

@@ -18,7 +18,7 @@
         <p class="contact">
             <?= $data['user']->email ?>
         </p>
-        <div class="button-profile">
+        <div class="button-green">
             <a href="?c=user&a=update" class="button hov">
                 Upraviť profil
             </a>

@@ -12,12 +12,12 @@
                 <?php } ?>
                 <form method="post" action="?c=auth&a=login">
                     <div class="mb-3">
-                        <label for="exampleFormControlInput1" class="form-label">Používateľské meno</label>
-                        <input type="text" class="form-control" name="login" id="exampleFormControlInput1" required>
+                        <label for="login" class="form-label">Používateľské meno</label>
+                        <input type="text" class="form-control" name="login" id="login" required>
                     </div>
                     <div class="mb-3">
-                        <label for="exampleFormControlInput2" class="form-label">Heslo</label>
-                        <input type="password" class="form-control" name="password" id="exampleFormControlInput2" required>
+                        <label for="password" class="form-label">Heslo</label>
+                        <input type="password" class="form-control" name="password" id="password" required>
                     </div>
                     <div class="mb-3">
                         <input type="submit" class="form-control button" value="Prihlásiť">

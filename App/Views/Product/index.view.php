@@ -18,17 +18,21 @@ use App\Config\Configuration; ?>
             </p>
         </div>
         <div class="col">
-            <img class="productPosition" src="<?= Configuration::IMAGES_PATH . $data['product']->productImage ?>">
+            <img alt="Produkt" class="detail-image-position" src="<?= Configuration::IMAGES_PATH . $data['product']->productImage ?>">
         </div>
     </div>
     <?php if (\App\Auth::isLogged()) { ?>
-    <div class="button-profile">
+    <div class="button-green">
         <a class="button hov" href="?c=product&a=saveProduct&id=<?= $data['product']->id ?>">Upraviť produkt</a>
         <a class="button hov" href="?c=product&a=deleteProduct&id=<?= $data['product']->id ?>">Vymazať produkt</a>
     </div>
     <?php } ?>
     <br>
-    <h3 class="subsubtitle">Recenzie <a class="button hov" href="?c=review&a=saveReview&id=<?= $data['product']->id ?>">Pridať recenziu</a></h3>
+    <?php if (!\App\Auth::isLogged() || $data['company']->userId != $_SESSION["id"] ?? -1) { ?>
+        <h3 class="subsubtitle">Recenzie <a class="button hov" href="?c=review&a=saveReview&id=<?= $data['product']->id ?>">Pridať recenziu</a></h3>
+    <?php } else { ?>
+        <h3 class="subsubtitle">Recenzie</h3>
+    <?php } ?>
     <br>
     <div class="review-width">
 

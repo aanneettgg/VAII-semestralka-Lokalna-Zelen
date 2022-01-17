@@ -17,7 +17,7 @@ CREATE TABLE `company` (
                          `companyDescription` varchar(1000) NOT NULL,
                          `companyImage` varchar(1000) NOT NULL,
                          PRIMARY KEY (`id`),
-                         FOREIGN KEY (userId) REFERENCES user(id)
+                         CONSTRAINT `FK_company_user` FOREIGN KEY (userId) REFERENCES user(id) ON DELETE CASCADE
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `company` (`id`, `userId`, `companyName`, `companyDescription`, `companyImage`) VALUES (1, 1, "Yeme", "Yeme plnochutne potraviny.", "firma_yeme.jpg");
@@ -33,7 +33,7 @@ CREATE TABLE `product` (
                         `productDescription` varchar(1000) NOT NULL,
                         `productImage` varchar(1000) NOT NULL,
                         PRIMARY KEY (`id`),
-                        FOREIGN KEY (companyId) REFERENCES company(id)
+                        CONSTRAINT `FK_product_company` FOREIGN KEY (companyId) REFERENCES company(id) ON DELETE CASCADE
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `product` (`id`, `companyId`, `productName`, `productType`, `productPrice`, `productDescription`, `productImage`) VALUES (1, 1, "Banány", "Potraviny", 1.20,  "Banány obsahujú veľa draslíku, ktorý je zdravý.", "banany.jpg");
@@ -45,7 +45,7 @@ CREATE TABLE `review` (
                         `reviewDescription` varchar(1000),
                         `rating` int unsigned NOT NULL,
                         PRIMARY KEY (`id`),
-                        FOREIGN KEY (productId) REFERENCES product(id)
+                        CONSTRAINT `FK_review_product` FOREIGN KEY (productId) REFERENCES product(id) ON DELETE CASCADE
 ) AUTO_INCREMENT=1;
 
 INSERT INTO `review` (`id`, `productId`, `reviewDescription`, `rating`) VALUES (1, 1, "Veľmi chutné a plné vitamínov", 5);

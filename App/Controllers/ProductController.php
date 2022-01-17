@@ -28,9 +28,7 @@ class ProductController extends AControllerRedirect
 
     public function createProduct()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         if($this->request()->getValue('id') == "")
         {
@@ -40,6 +38,14 @@ class ProductController extends AControllerRedirect
         else
         {
             $product = Product::getOne($this->request()->getValue('id'));
+            $company = Company::getOne($product->companyId);
+
+            if ($_SESSION["id"] != $company->userId)
+            {
+                $this->redirect('home', 'shop');
+                exit();
+            }
+
             $products = Product::getAll('id <> ?', [$product->id]);
         }
 
@@ -80,22 +86,31 @@ class ProductController extends AControllerRedirect
 
     public function deleteProduct()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $product = Product::getOne($this->request()->getValue('id'));
+        $company = Company::getOne($product->companyId);
+
+        if ($_SESSION["id"] != $company->userId)
+        {
+            $this->redirect('home', 'shop');
+            exit();
+        }
+
+        $reviews = Review::getAll('productId <> ?', [$product->id]);
         unlink(Configuration::IMAGES_PATH . $product->productImage);
         $product->delete();
+        foreach ($reviews as $review)
+        {
+            $review->delete();
+        }
 
         $this->redirect('home', 'shop');
     }
 
     public function saveProduct()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         if(is_null($this->request()->getValue('id')))
         {
@@ -108,6 +123,12 @@ class ProductController extends AControllerRedirect
 
         $product = Product::getOne($this->request()->getValue('id'));
         $company = Company::getOne($product->companyId);
+
+        if ($_SESSION["id"] != $company->userId)
+        {
+            $this->redirect('home', 'shop');
+            exit();
+        }
 
         return $this->html(
             [

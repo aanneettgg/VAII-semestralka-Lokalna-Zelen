@@ -56,9 +56,7 @@ class UserController extends AControllerRedirect
 
     public function updateUser()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $userId = $this->request()->getValue('id');
         if ($userId > 0)
@@ -104,9 +102,7 @@ class UserController extends AControllerRedirect
 
     public function deleteUser()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $user = User::getOne($_SESSION["id"]);
         $user->delete();
@@ -117,9 +113,7 @@ class UserController extends AControllerRedirect
 
     public function profile()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $user = User::getOne($_SESSION["id"]);
 
@@ -132,9 +126,7 @@ class UserController extends AControllerRedirect
 
     public function update()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $user = User::getOne($_SESSION["id"]);
 

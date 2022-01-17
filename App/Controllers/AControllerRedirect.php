@@ -2,11 +2,11 @@
 
 namespace App\Controllers;
 
+use App\Auth;
 use App\Core\Responses\Response;
 
 abstract class AControllerRedirect extends \App\Core\AControllerBase
 {
-
     protected function redirect($controller, $action = "", $params = [])
     {
         $location = "Location: ?c=$controller";
@@ -17,6 +17,14 @@ abstract class AControllerRedirect extends \App\Core\AControllerBase
             $location .= "&$name=" . urlencode($value);
         }
         header($location);
+    }
+
+    protected function loginValidation()
+    {
+        if (!Auth::isLogged()) {
+            $this->redirect("home");
+            exit();
+        }
     }
 
 }

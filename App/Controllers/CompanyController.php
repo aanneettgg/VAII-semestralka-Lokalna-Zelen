@@ -23,9 +23,7 @@ class CompanyController extends AControllerRedirect
 
     public function createCompany()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         if($this->request()->getValue('id') == "")
         {
@@ -36,6 +34,11 @@ class CompanyController extends AControllerRedirect
         {
             $company = Company::getOne($this->request()->getValue('id'));
             $companies = Company::getAll('id <> ?', [$company->id]);
+            if ($_SESSION["id"] != $company->userId)
+            {
+                $this->redirect('home', 'partners');
+                exit();
+            }
         }
 
         $isDuplicatedCompanyName = false;
@@ -75,11 +78,15 @@ class CompanyController extends AControllerRedirect
 
     public function deleteCompany()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         $company = Company::getOne($this->request()->getValue('id'));
+        if ($_SESSION["id"] != $company->userId)
+        {
+            $this->redirect('home', 'partners');
+            exit();
+        }
+
         unlink(Configuration::IMAGES_PATH . $company->companyImage);
         $company->delete();
 
@@ -88,9 +95,7 @@ class CompanyController extends AControllerRedirect
 
     public function saveCompany()
     {
-        if (!Auth::isLogged()) {
-            $this->redirect("home");
-        }
+        $this->loginValidation();
 
         if(is_null($this->request()->getValue('id')))
         {
@@ -102,6 +107,12 @@ class CompanyController extends AControllerRedirect
         }
 
         $company = Company::getOne($this->request()->getValue('id'));
+
+        if ($_SESSION["id"] != $company->userId)
+        {
+            $this->redirect('home', 'partners');
+            exit();
+        }
 
         return $this->html(
             [

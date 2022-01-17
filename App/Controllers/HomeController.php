@@ -62,7 +62,7 @@ class HomeController extends AControllerBase
     public function dropdownCompanyName()
     {
         $companyName = '%' . $this->request()->getValue('companyName') . '%';
-        $companies = Company::getAll('companyName LIKE ?', [$companyName]);
+        $companies = Company::getAll('companyName LIKE ? AND userId = ?', [$companyName, $_SESSION['id']]);
 
         return $this->json($companies);
     }

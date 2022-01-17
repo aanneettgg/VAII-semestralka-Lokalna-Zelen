@@ -79,8 +79,8 @@ class ProductController extends AControllerRedirect
         }
         else
         {
-            $product->save();
-            $this->redirect('product', 'index', ['id' => $product->id]);
+            $id = $product->save();
+            $this->redirect('product', 'index', ['id' => $id]);
         }
     }
 
